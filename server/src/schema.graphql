@@ -9,5 +9,4 @@ type Link {
 }
 type Mutation {
   post(url: String!, description: String!): Link!
-  deleteLink(id: ID!): Link!
 }
