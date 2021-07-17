@@ -2,7 +2,6 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-//3
 async function main() {
   const newLink = await prisma.link.create({
     data: {
@@ -14,12 +13,10 @@ async function main() {
   console.log(allLinks);
 }
 
-//4
 main()
   .catch((e) => {
     throw e;
   })
-  // 5
   .finally(async () => {
     await prisma.$disconnect();
   });
