@@ -15,41 +15,30 @@ let links = [
   },
 ];
 
-let images = [
-  {
-    id: "img-0",
-    image:
-      "https://instagram.fbbi1-2.fna.fbcdn.net/v/t51.2885-19/s320x320/188587663_118291377040366_4967903207357042455_n.jpg?_nc_ht=instagram.fbbi1-2.fna.fbcdn.net&_nc_ohc=fulmrOEX-sEAX8ZN8yY&edm=ABfd0MgBAAAA&ccb=7-4&oh=761145d7ba0ae94567fa2db45ef2ecd1&oe=60F8FF5D&_nc_sid=7bff83",
-    description: "It's me lol",
-  },
-];
-
 // 1
 let idCount = links.length;
-let idImageCount = images.length;
 
 const resolvers = {
   Query: {
     info: () => `This is the API of a Hackernews Clone`,
     feed: () => links,
-    image: () => images,
   },
   Mutation: {
-    // 2
     post: (prt, args) => {
       const link = {
         id: `link-${idCount++}`,
         description: args.description,
         url: args.url,
       };
-      const img = {
-        id: `link-${idImageCount++}`,
-        description: args.description,
-        image: args.image,
-      };
       links.push(link);
-      images.push(img);
-      return link, img;
+      return link;
+    },
+    deleteLink: (prt) => {
+      const del = {
+        id: `link - ${idCount--}`,
+      };
+      links.pop(del);
+      return del;
     },
   },
 };

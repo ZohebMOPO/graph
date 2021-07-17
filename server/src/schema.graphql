@@ -1,18 +1,13 @@
 type Query {
   info: String!
   feed: [Link!]!
-  image: [Img!]!
 }
 type Link {
   id: ID!
   description: String!
   url: String!
 }
-type Img {
-  id: ID!
-  image: String!
-  description: String!
-}
 type Mutation {
   post(url: String!, description: String!): Link!
+  deleteLink(id: ID!): Link!
 }
