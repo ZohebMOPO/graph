@@ -24,23 +24,33 @@ let images = [
   },
 ];
 
+// 1
+let idCount = links.length;
+let idImageCount = images.length;
+
 const resolvers = {
   Query: {
-    info: () => `This is an demo API`,
+    info: () => `This is the API of a Hackernews Clone`,
     feed: () => links,
     image: () => images,
   },
-
-  Link: {
-    id: (prt) => prt.id,
-    description: (prt) => prt.description,
-    url: (prt) => prt.url,
-  },
-
-  Img: {
-    id: (prt) => prt.id,
-    description: (prt) => prt.description,
-    image: (prt) => prt.image,
+  Mutation: {
+    // 2
+    post: (prt, args) => {
+      const link = {
+        id: `link-${idCount++}`,
+        description: args.description,
+        url: args.url,
+      };
+      const img = {
+        id: `link-${idImageCount++}`,
+        description: args.description,
+        image: args.image,
+      };
+      links.push(link);
+      images.push(img);
+      return link, img;
+    },
   },
 };
 
