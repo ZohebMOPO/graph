@@ -1,3 +1,8 @@
+const Query = require("./resolvers/Query");
+const Mutation = require("./resolvers/Mutation");
+const User = require("./resolvers/User");
+const Link = require("./resolvers/Link");
+
 const { PrismaClient } = require("@prisma/client");
 const { ApolloServer } = require("apollo-server");
 const path = require("path");
