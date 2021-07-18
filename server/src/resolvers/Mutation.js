@@ -26,6 +26,9 @@ async function login(parents, args, context, info) {
 
   const valid = await bcrypt.compare(args.password, user.password);
 
+  if (!valid) {
+    throw new Error("Password is incorrect");
+  }
   return {
     token,
     user,
