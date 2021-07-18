@@ -23,9 +23,10 @@ const resolvers = {
       return newLink;
     },
     delete: (parent, args, context) => {
+      const id = +args.id;
       const delLink = context.prisma.link.delete({
         where: {
-          id: args.id,
+          id,
         },
       });
       return delLink;
