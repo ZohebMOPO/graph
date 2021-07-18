@@ -9,6 +9,11 @@ async function main() {
       url: "https://github.com/",
     },
   });
+  const delLink = await prisma.link.delete({
+    where: {
+      id: 2,
+    },
+  });
   const allLinks = await prisma.link.findMany();
   console.log(allLinks);
 }
