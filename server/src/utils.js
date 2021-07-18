@@ -25,3 +25,8 @@ function getUserId(req, authToken) {
 
   throw new Error("Cant be authenticated");
 }
+
+module.exports = {
+  APP_SECRET,
+  getUserId,
+};
