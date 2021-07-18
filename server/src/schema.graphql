@@ -6,7 +6,9 @@ type Link {
   id: ID!
   description: String!
   url: String!
+  postedby: String!
 }
+
 type AuthPayload {
   token: String
   user: User
