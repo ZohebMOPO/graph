@@ -6,7 +6,7 @@ type Link {
   id: ID!
   description: String!
   url: String!
-  postedby: String!
+  postedby: User
 }
 
 type AuthPayload {
@@ -21,7 +21,9 @@ type User {
 }
 type Mutation {
   post(url: String!, description: String!): Link!
-  delete(id: ID!): Link!
   signup(email: String!, password: String!, name: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
+}
+type Subscription {
+  newLink: Link
 }

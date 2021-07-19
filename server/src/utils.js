@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
-const APP_SECRET =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+const APP_SECRET = "GraphQL-is-aw3some";
 
 function getPayloadToken(token) {
   return jwt.verify(token, APP_SECRET);
